@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/banner.png' %}" height="450px" width="100%">
+</div>
+<div class="container-fluid mt-4" style="margin-bottom:100px;">
+    <h3 class="text-center">Our Collections</h3>
+    <p class="line-height:1.8;text-align:justify;">Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the potential intent to purchase a suitable selection of them. A typology of shopper types has been developed by scholars which identifies one group of shoppers as recreational shoppers,[1] that is, those who enjoy shopping and view it as a leisure activity.[2]Shoppers' shopping experiences may vary. They are based on a variety of factors including how the customer is treated, convenience, the type of goods being purchased, and mood.[4]</p>
+</div>
+
+<div class="container-fluid mt-3" style="margin-bottom:50px;">
+    <div class="row">
+        {% for i in c %}
+             <div class="col-sm-4">
+        <div class="card" style="width: 30rem;">
+  <img src="{{i.image.url}}" class="card-img-top" alt="..." height="250px" width="100%;">
+  <div class="card-body">
+    <h5 class="card-title">{{i.name}}</h5>
+    <a href="{% url 'shop:allproducts' i.name %}" class="btn btn-primary" style="position:relative;left:38%;">PRODUCTS</a>
+  </div>
+</div>
+
+        </div>{% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
